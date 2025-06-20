@@ -45,7 +45,6 @@ export class CouponsService {
     if (!coupon) throw new BadGatewayException('Cupon no existe');
     const currentDate = new Date();
     const expiration = endOfDay(coupon.expirationDate);
-    console.log(currentDate);
     // eslint-disable-next-line prettier/prettier
     if (isAfter(currentDate, expiration)) { // fecha actual es despues de la fecha del cupon ??
       throw new BadGatewayException('Cupon expirado');

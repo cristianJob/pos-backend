@@ -18,7 +18,7 @@ export class Transaction {
   @Column({ type: 'varchar', nullable: true })
   coupon: string;
 
-  @Column({ type: 'decimal', nullable: true })
+  @Column({ type: 'decimal', default: 0 })
   discount: number;
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP(6)' })

@@ -1,11 +1,12 @@
-import { IsInt, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+// eslint-disable-next-line prettier/prettier
+import { IsInt, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class CreateProductDto {
   @IsNotEmpty({ message: 'El Nombre del Producto es Obligatorio' })
   @IsString({ message: 'Nombre no válido' })
   name: string;
 
-  @IsNotEmpty({ message: 'La imagen del Producto es Obligatorio' })
+  @IsOptional()
   image: string;
 
   @IsNotEmpty({ message: 'El Precio del Producto es Obligatorio' })

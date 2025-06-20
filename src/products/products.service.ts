@@ -22,7 +22,6 @@ export class ProductsService {
     if (!category) {
       throw new NotFoundException('La categoria no existe');
     }
-    console.log(category);
     return this.productRepository.save({ ...createProductDto, category });
   }
 
@@ -35,7 +34,7 @@ export class ProductsService {
         id: 'ASC',
       },
       take, // esto ayuda a la paginacion, trae un limite de products
-      skip, // omite una cntidad de productos
+      skip, // omite una catidad de productos
     };
     if (categoryId) {
       options.where = {
@@ -85,6 +84,8 @@ export class ProductsService {
   async remove(id: number) {
     const product = await this.findOne(id);
     await this.productRepository.remove(product);
-    return 'Producto eliminado';
+    return {
+      message: 'Producto eliminado',
+    };
   }
 }
